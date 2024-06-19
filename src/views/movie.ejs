@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Movie</title>
+</head>
+<body>
+    <h1>Add Movie</h1>
+    <form action="/add_movie" method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="release_date">Release Date:</label>
+            <input type="date" id="release_date" name="release_date" required>
+        </div>
+        <div>
+            <label>Genre:</label><br>
+            <input type="checkbox" id="thriller" name="genre" value="thriller">
+            <label for="thriller">Thriller</label><br>
+            <input type="checkbox" id="romantic" name="genre" value="romantic">
+            <label for="romantic">Romantic</label><br>
+            <input type="checkbox" id="mystery" name="genre" value="mystery">
+            <label for="mystery">Mystery</label><br>
+            <input type="checkbox" id="scifi" name="genre" value="scifi">
+            <label for="scifi">Sci-Fi</label><br>
+            <input type="checkbox" id="drama" name="genre" value="drama">
+            <label for="drama">Drama</label><br>
+         
+        </div>
+
+        <input type="hidden" name="user_id" value="<%= user_id %>">
+
+       
+        
+      
+        <button type="submit">Add Movie</button>
+
+    </form>
+    
+    <h1>List of movies in my Data base </h1>
+    <form>
+        <label for="moviesDropdown">List of movies in my Database</label>
+        <select id="moviesDropdown">
+            <% movies.forEach(item => { %>
+                <option value="<%= item.moviename %>"><%= item.moviename %></option>
+            <% }) %>
+        </select>
+    </form>
+    
+ 
+    
+</body>
+</html>
